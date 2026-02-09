@@ -15,7 +15,7 @@ const Container = styled.div`
     flex-direction: column;
   }
 
-  @media (prefers-color-scheme: light) {
+  [data-theme='light'] & {
     background-color: rgba(0, 0, 0, 0.02);
     border-color: rgba(0, 0, 0, 0.1);
   }

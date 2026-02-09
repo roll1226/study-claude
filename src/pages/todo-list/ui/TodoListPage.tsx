@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { TodoFilters } from '@/widgets/todo-filters';
 import { TodoList } from '@/widgets/todo-list';
+import { ThemeToggleButton } from '@/features/toggle-theme';
 
 const Container = styled.div`
   width: 100%;
@@ -18,12 +19,26 @@ const Container = styled.div`
 `;
 
 const Header = styled.header`
+  position: relative;
   text-align: center;
   padding-bottom: 1rem;
   border-bottom: 2px solid rgba(255, 255, 255, 0.1);
 
-  @media (prefers-color-scheme: light) {
+  [data-theme='light'] & {
     border-bottom-color: rgba(0, 0, 0, 0.1);
+  }
+`;
+
+const ThemeToggleContainer = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  @media (max-width: 768px) {
+    position: static;
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
   }
 `;
 
@@ -45,7 +60,7 @@ const Subtitle = styled.p`
   font-size: 1rem;
   color: rgba(255, 255, 255, 0.6);
 
-  @media (prefers-color-scheme: light) {
+  [data-theme='light'] & {
     color: rgba(0, 0, 0, 0.6);
   }
 `;
@@ -93,6 +108,9 @@ export function TodoListPage() {
       <Header>
         <Title>📝 Todo リスト</Title>
         <Subtitle>タスクを追加・編集・管理しましょう</Subtitle>
+        <ThemeToggleContainer>
+          <ThemeToggleButton />
+        </ThemeToggleContainer>
       </Header>
 
       <Content>

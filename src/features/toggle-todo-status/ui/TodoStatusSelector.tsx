@@ -42,7 +42,7 @@ const StyledSelect = styled.select<{ $status: TodoStatus }>`
     }
   }}
 
-  @media (prefers-color-scheme: light) {
+  [data-theme='light'] & {
     background-color: #ffffff;
     color: #213547;
     border-color: rgba(0, 0, 0, 0.2);

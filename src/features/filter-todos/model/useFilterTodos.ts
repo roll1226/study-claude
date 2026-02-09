@@ -1,4 +1,5 @@
 import { useCurrentFilter, useFilteredTodos } from '@/app/providers';
+import { TODO_STATUSES } from '@/entities/todo';
 
 export function useFilterTodos() {
   const { filter, setFilter } = useCurrentFilter();
@@ -7,9 +8,9 @@ export function useFilterTodos() {
   const getCounts = () => {
     return {
       all: allTodos.length,
-      pending: allTodos.filter((t) => t.status === 'pending').length,
-      in_progress: allTodos.filter((t) => t.status === 'in_progress').length,
-      completed: allTodos.filter((t) => t.status === 'completed').length,
+      pending: allTodos.filter((t) => t.status === TODO_STATUSES.pending).length,
+      in_progress: allTodos.filter((t) => t.status === TODO_STATUSES.in_progress).length,
+      completed: allTodos.filter((t) => t.status === TODO_STATUSES.completed).length,
     };
   };
 

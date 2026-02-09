@@ -5,3 +5,5 @@ export {
   useFilteredTodos,
   useCurrentFilter,
 } from './useTodoHooks';
+export { ThemeProvider } from './ThemeProvider';
+export { useTheme } from './useTheme';

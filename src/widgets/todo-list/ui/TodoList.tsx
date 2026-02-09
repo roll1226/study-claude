@@ -21,7 +21,7 @@ const FormContainer = styled.div`
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.1);
 
-  @media (prefers-color-scheme: light) {
+  [data-theme='light'] & {
     background-color: rgba(0, 0, 0, 0.02);
     border-color: rgba(0, 0, 0, 0.1);
   }
@@ -62,7 +62,7 @@ const EmptyState = styled.div`
     margin: 0;
   }
 
-  @media (prefers-color-scheme: light) {
+  [data-theme='light'] & {
     color: rgba(0, 0, 0, 0.5);
   }
 `;

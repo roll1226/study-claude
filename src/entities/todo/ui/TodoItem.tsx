@@ -66,7 +66,7 @@ const Description = styled.p`
   line-height: 1.5;
   word-break: break-word;
 
-  @media (prefers-color-scheme: light) {
+  [data-theme='light'] & {
     color: rgba(0, 0, 0, 0.75);
   }
 `;
@@ -78,7 +78,7 @@ const Footer = styled.div`
   padding-top: 0.5rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 
-  @media (prefers-color-scheme: light) {
+  [data-theme='light'] & {
     border-top-color: rgba(0, 0, 0, 0.1);
   }
 `;
@@ -87,7 +87,7 @@ const Date = styled.span`
   font-size: 0.75rem;
   color: rgba(255, 255, 255, 0.5);
 
-  @media (prefers-color-scheme: light) {
+  [data-theme='light'] & {
     color: rgba(0, 0, 0, 0.5);
   }
 `;

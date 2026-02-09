@@ -4,6 +4,9 @@ import path from 'path'
 
 // https://vite.dev/config/
 export default defineConfig({
+  // GitHub Pagesにデプロイする場合、リポジトリ名をbaseに設定してください
+  // 例: base: '/your-repo-name/'
+  base: './',
   plugins: [
     react({
       babel: {

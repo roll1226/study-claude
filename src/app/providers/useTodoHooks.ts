@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { TodoContext } from './TodoContext';
 import type { TodoFilter } from '@/entities/todo/model/types';
+import { DEFAULT_FILTER } from '@/entities/todo/model/constants';
 
 export function useTodoContext() {
   const context = useContext(TodoContext);
@@ -19,7 +20,7 @@ export function useFilteredTodos() {
   const { state } = useTodoContext();
 
   const filteredTodos = state.todos.filter((todo) => {
-    if (state.currentFilter === 'all') return true;
+    if (state.currentFilter === DEFAULT_FILTER) return true;
     return todo.status === state.currentFilter;
   });
 

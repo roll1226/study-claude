@@ -10,7 +10,14 @@ export type {
 } from './model/types';
 
 // constants
-export { TODO_STATUSES, STATUS_LABELS, FILTER_LABELS } from './model/constants';
+export {
+  TODO_STATUSES,
+  DEFAULT_STATUS,
+  DEFAULT_FILTER,
+  TODO_FILTERS,
+  STATUS_LABELS,
+  FILTER_LABELS,
+} from './model/constants';
 
 // reducer
 export { todoReducer } from './model/todoReducer';
