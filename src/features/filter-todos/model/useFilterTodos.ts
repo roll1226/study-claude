@@ -1,5 +1,5 @@
-import { useCurrentFilter, useFilteredTodos } from '@/app/providers';
-import { TODO_STATUSES } from '@/entities/todo';
+import { useCurrentFilter, useFilteredTodos } from '@/app/providers/useTodoHooks';
+import { TODO_STATUSES } from '@/entities/todo/model/constants';
 
 export function useFilterTodos() {
   const { filter, setFilter } = useCurrentFilter();

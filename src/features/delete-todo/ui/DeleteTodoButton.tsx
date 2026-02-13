@@ -1,5 +1,5 @@
 import { useDeleteTodo } from '../model/useDeleteTodo';
-import { Button } from '@/shared/ui';
+import { Button } from '@/shared/ui/Button';
 
 export interface DeleteTodoButtonProps {
   todoId: string;

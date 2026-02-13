@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import styled from 'styled-components';
-import type { FormEvent } from 'react';
+import type { FormEvent, ChangeEvent } from 'react';
 import { useAddTodo } from '../model/useAddTodo';
-import { Input, Button } from '@/shared/ui';
-import { DEFAULT_STATUS } from '@/entities/todo';
+import { Input } from '@/shared/ui/Input';
+import { Button } from '@/shared/ui/Button';
+import { DEFAULT_STATUS } from '@/entities/todo/model/constants';
 import { ERROR_MESSAGES } from '@/shared/constants/validation';
 
 const Form = styled.form`
@@ -35,7 +36,7 @@ export function AddTodoForm() {
   const [error, setError] = useState('');
   const { addTodo } = useAddTodo();
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = useCallback((e: FormEvent) => {
     e.preventDefault();
     setError('');
 
@@ -51,7 +52,15 @@ export function AddTodoForm() {
     } catch (err) {
       setError(err instanceof Error ? err.message : ERROR_MESSAGES.ADD_FAILED);
     }
-  };
+  }, [title, description, addTodo]);
+
+  const handleTitleChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
+    setTitle(e.target.value);
+  }, []);
+
+  const handleDescriptionChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
+    setDescription(e.target.value);
+  }, []);
 
   return (
     <Form onSubmit={handleSubmit}>
@@ -60,14 +69,14 @@ export function AddTodoForm() {
           type="text"
           placeholder="タスクを入力..."
           value={title}
-          onChange={(e) => setTitle(e.target.value)}
+          onChange={handleTitleChange}
           error={error}
         />
         <Input
           type="text"
           placeholder="説明（任意）"
           value={description}
-          onChange={(e) => setDescription(e.target.value)}
+          onChange={handleDescriptionChange}
         />
       </Fields>
       <Button type="submit" disabled={!title.trim()}>

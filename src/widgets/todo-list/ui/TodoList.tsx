@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import styled from 'styled-components';
-import { useFilteredTodos } from '@/app/providers';
-import { TodoItem } from '@/entities/todo';
-import { AddTodoForm } from '@/features/add-todo';
-import { DeleteTodoButton } from '@/features/delete-todo';
-import { EditTodoForm } from '@/features/edit-todo';
-import { TodoStatusSelector } from '@/features/toggle-todo-status';
-import { Button } from '@/shared/ui';
+import { useFilteredTodos } from '@/app/providers/useTodoHooks';
+import { TodoItem } from '@/entities/todo/ui/TodoItem';
+import { AddTodoForm } from '@/features/add-todo/ui/AddTodoForm';
+import { DeleteTodoButton } from '@/features/delete-todo/ui/DeleteTodoButton';
+import { EditTodoForm } from '@/features/edit-todo/ui/EditTodoForm';
+import { TodoStatusSelector } from '@/features/toggle-todo-status/ui/TodoStatusSelector';
+import { Button } from '@/shared/ui/Button';
 
 const Container = styled.div`
   display: flex;

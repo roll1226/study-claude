@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { TodoFilters } from '@/widgets/todo-filters';
-import { TodoList } from '@/widgets/todo-list';
-import { ThemeToggleButton } from '@/features/toggle-theme';
+import { TodoFilters } from '@/widgets/todo-filters/ui/TodoFilters';
+import { TodoList } from '@/widgets/todo-list/ui/TodoList';
+import { ThemeToggleButton } from '@/features/toggle-theme/ui/ThemeToggleButton';
 
 const Container = styled.div`
   width: 100%;

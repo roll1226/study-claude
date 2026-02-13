@@ -1,6 +1,7 @@
 import styled from 'styled-components';
-import { useFilterTodos, FilterButton } from '@/features/filter-todos';
-import { TODO_FILTERS } from '@/entities/todo';
+import { useFilterTodos } from '@/features/filter-todos/model/useFilterTodos';
+import { FilterButton } from '@/features/filter-todos/ui/FilterButton';
+import { TODO_FILTERS } from '@/entities/todo/model/constants';
 
 const Container = styled.div`
   display: flex;

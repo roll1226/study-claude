@@ -12,7 +12,13 @@ describe('localStorage utilities', () => {
       setItem('test-key', data);
 
       const stored = localStorage.getItem('test-key');
-      expect(stored).toBe(JSON.stringify(data));
+      const parsed = JSON.parse(stored!);
+
+      // バージョン管理されたデータ形式で保存されることを確認
+      expect(parsed).toEqual({
+        version: 1,
+        data: data,
+      });
     });
 
     it('配列を保存できる', () => {

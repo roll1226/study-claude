@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { useToggleTodoStatus } from '../model/useToggleTodoStatus';
-import { STATUS_LABELS, TODO_STATUSES } from '@/entities/todo';
-import type { TodoStatus } from '@/entities/todo';
+import { STATUS_LABELS, TODO_STATUSES } from '@/entities/todo/model/constants';
+import type { TodoStatus } from '@/entities/todo/model/types';
 
 export interface TodoStatusSelectorProps {
   todoId: string;

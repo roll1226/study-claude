@@ -2,8 +2,9 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import type { FormEvent } from 'react';
 import { useEditTodo } from '../model/useEditTodo';
-import { Input, Button } from '@/shared/ui';
-import type { Todo } from '@/entities/todo';
+import { Input } from '@/shared/ui/Input';
+import { Button } from '@/shared/ui/Button';
+import type { Todo } from '@/entities/todo/model/types';
 import { ERROR_MESSAGES } from '@/shared/constants/validation';
 
 const Form = styled.form`

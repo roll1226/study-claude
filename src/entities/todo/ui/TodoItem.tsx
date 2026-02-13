@@ -1,8 +1,9 @@
+import { memo } from 'react';
 import styled from 'styled-components';
 import type { Todo } from '../model/types';
 import { TodoStatusBadge } from './TodoStatusBadge';
-import { Card } from '@/shared/ui';
-import { formatDate } from '@/shared/lib/date';
+import { Card } from '@/shared/ui/Card';
+import { formatDate } from '@/shared/lib/date/formatDate';
 
 export interface TodoItemProps {
   todo: Todo;
@@ -92,7 +93,7 @@ const Date = styled.span`
   }
 `;
 
-export function TodoItem({ todo, children }: TodoItemProps) {
+export const TodoItem = memo(function TodoItem({ todo, children }: TodoItemProps) {
   return (
     <StyledCard $status={todo.status}>
       <Header>
@@ -110,4 +111,4 @@ export function TodoItem({ todo, children }: TodoItemProps) {
       </Footer>
     </StyledCard>
   );
-}
+});

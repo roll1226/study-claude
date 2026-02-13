@@ -1,6 +1,6 @@
-import { useTodoContext } from '@/app/providers';
-import { createTodo, validateTodoInput } from '@/entities/todo';
-import type { TodoInput } from '@/entities/todo';
+import { useTodoContext } from '@/app/providers/useTodoHooks';
+import { createTodo, validateTodoInput } from '@/entities/todo/lib';
+import type { TodoInput } from '@/entities/todo/model/types';
 
 export function useAddTodo() {
   const { dispatch } = useTodoContext();

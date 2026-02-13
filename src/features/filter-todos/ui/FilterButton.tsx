@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { Button } from '@/shared/ui';
-import type { TodoFilter } from '@/entities/todo';
-import { FILTER_LABELS } from '@/entities/todo';
+import { Button } from '@/shared/ui/Button';
+import type { TodoFilter } from '@/entities/todo/model/types';
+import { FILTER_LABELS } from '@/entities/todo/model/constants';
 
 export interface FilterButtonProps {
   filter: TodoFilter;

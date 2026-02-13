@@ -1,5 +1,5 @@
-import { useTodoContext } from '@/app/providers';
-import type { TodoStatus } from '@/entities/todo';
+import { useTodoContext } from '@/app/providers/useTodoHooks';
+import type { TodoStatus } from '@/entities/todo/model/types';
 
 export function useToggleTodoStatus() {
   const { dispatch } = useTodoContext();

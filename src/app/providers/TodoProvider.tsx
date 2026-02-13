@@ -1,4 +1,4 @@
-import { useReducer, useEffect } from 'react';
+import { useReducer, useEffect, useMemo } from 'react';
 import type { ReactNode } from 'react';
 import type { TodosState, Todo } from '@/entities/todo/model/types';
 import { todoReducer } from '@/entities/todo/model/todoReducer';
@@ -25,8 +25,10 @@ export function TodoProvider({ children }: { children: ReactNode }) {
     setItem(STORAGE_KEYS.TODOS, state.todos);
   }, [state.todos]);
 
+  const value = useMemo(() => ({ state, dispatch }), [state]);
+
   return (
-    <TodoContext.Provider value={{ state, dispatch }}>
+    <TodoContext.Provider value={value}>
       {children}
     </TodoContext.Provider>
   );
