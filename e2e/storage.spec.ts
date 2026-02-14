@@ -18,7 +18,9 @@ test.describe('LocalStorage永続化', () => {
     });
 
     expect(storedData).toBeTruthy();
-    const todos = JSON.parse(storedData!);
+    const parsed = JSON.parse(storedData!);
+    // バージョン管理されたデータ形式: { version: number, data: Todo[] }
+    const todos = parsed.data ?? parsed;
     expect(todos).toHaveLength(1);
     expect(todos[0].title).toBe('保存テスト');
   });
@@ -59,7 +61,8 @@ test.describe('LocalStorage永続化', () => {
     });
 
     expect(storedData).toBeTruthy();
-    const todos = JSON.parse(storedData!);
+    const parsed = JSON.parse(storedData!);
+    const todos = parsed.data ?? parsed;
     expect(todos).toHaveLength(0);
   });
 
@@ -76,7 +79,8 @@ test.describe('LocalStorage永続化', () => {
       return localStorage.getItem('todos');
     });
 
-    const todos = JSON.parse(storedData!);
+    const parsed = JSON.parse(storedData!);
+    const todos = parsed.data ?? parsed;
     expect(todos[0].status).toBe('completed');
 
     // ページをリロード

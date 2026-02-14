@@ -56,14 +56,14 @@ const EmptyState = styled.div`
   gap: 0.5rem;
   padding: 3rem 2rem;
   text-align: center;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.7);
 
   p {
     margin: 0;
   }
 
   [data-theme='light'] & {
-    color: rgba(0, 0, 0, 0.5);
+    color: rgba(0, 0, 0, 0.65);
   }
 `;
 
@@ -111,6 +111,7 @@ export function TodoList() {
                   variant="secondary"
                   size="small"
                   onClick={() => setEditingId(todo.id)}
+                  aria-label="タスクを編集"
                 >
                   編集
                 </Button>

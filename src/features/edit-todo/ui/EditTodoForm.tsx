@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import styled from 'styled-components';
-import type { FormEvent } from 'react';
+import type { FormEvent, ChangeEvent } from 'react';
 import { useEditTodo } from '../model/useEditTodo';
 import { Input } from '@/shared/ui/Input';
 import { Button } from '@/shared/ui/Button';
@@ -46,7 +46,7 @@ export function EditTodoForm({ todo, onCancel, onSave }: EditTodoFormProps) {
   const [error, setError] = useState('');
   const { editTodo } = useEditTodo();
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = useCallback((e: FormEvent) => {
     e.preventDefault();
     setError('');
 
@@ -59,7 +59,15 @@ export function EditTodoForm({ todo, onCancel, onSave }: EditTodoFormProps) {
     } catch (err) {
       setError(err instanceof Error ? err.message : ERROR_MESSAGES.UPDATE_FAILED);
     }
-  };
+  }, [editTodo, todo.id, title, description, onSave]);
+
+  const handleTitleChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
+    setTitle(e.target.value);
+  }, []);
+
+  const handleDescriptionChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
+    setDescription(e.target.value);
+  }, []);
 
   return (
     <Form onSubmit={handleSubmit}>
@@ -68,14 +76,16 @@ export function EditTodoForm({ todo, onCancel, onSave }: EditTodoFormProps) {
           type="text"
           placeholder="タスクを入力..."
           value={title}
-          onChange={(e) => setTitle(e.target.value)}
+          onChange={handleTitleChange}
           error={error}
+          aria-label="タスクのタイトル"
         />
         <Input
           type="text"
           placeholder="説明（任意）"
           value={description}
-          onChange={(e) => setDescription(e.target.value)}
+          onChange={handleDescriptionChange}
+          aria-label="タスクの説明"
         />
       </Fields>
       <Actions>

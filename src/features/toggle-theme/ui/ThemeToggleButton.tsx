@@ -1,3 +1,4 @@
+import { useCallback } from 'react';
 import styled from 'styled-components';
 import { useToggleTheme } from '../model/useToggleTheme';
 import type { ThemeMode } from '@/shared/constants/theme';
@@ -47,15 +48,15 @@ const THEME_ICONS: Record<ThemeMode, string> = {
 export function ThemeToggleButton() {
   const { themeMode, setThemeMode } = useToggleTheme();
 
-  const cycleTheme = () => {
+  const cycleTheme = useCallback(() => {
     const modes: ThemeMode[] = ['system', 'light', 'dark'];
     const currentIndex = modes.indexOf(themeMode);
     const nextIndex = (currentIndex + 1) % modes.length;
     setThemeMode(modes[nextIndex]);
-  };
+  }, [themeMode, setThemeMode]);
 
   return (
-    <ToggleButton onClick={cycleTheme} title={`テーマ: ${THEME_LABELS[themeMode]}`}>
+    <ToggleButton onClick={cycleTheme} title={`テーマ: ${THEME_LABELS[themeMode]}`} aria-label={`テーマ切り替え: 現在${THEME_LABELS[themeMode]}`}>
       <Icon>{THEME_ICONS[themeMode]}</Icon>
       <span>{THEME_LABELS[themeMode]}</span>
     </ToggleButton>

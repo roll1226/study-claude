@@ -71,12 +71,14 @@ export function AddTodoForm() {
           value={title}
           onChange={handleTitleChange}
           error={error}
+          aria-label="タスクのタイトル"
         />
         <Input
           type="text"
           placeholder="説明（任意）"
           value={description}
           onChange={handleDescriptionChange}
+          aria-label="タスクの説明"
         />
       </Fields>
       <Button type="submit" disabled={!title.trim()}>

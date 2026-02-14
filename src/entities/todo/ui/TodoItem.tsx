@@ -7,9 +7,6 @@ import { formatDate } from '@/shared/lib/date/formatDate';
 
 export interface TodoItemProps {
   todo: Todo;
-  onEdit?: () => void;
-  onDelete?: () => void;
-  onStatusChange?: () => void;
   children?: React.ReactNode;
 }
 
@@ -86,10 +83,10 @@ const Footer = styled.div`
 
 const Date = styled.span`
   font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.7);
 
   [data-theme='light'] & {
-    color: rgba(0, 0, 0, 0.5);
+    color: rgba(0, 0, 0, 0.65);
   }
 `;
 

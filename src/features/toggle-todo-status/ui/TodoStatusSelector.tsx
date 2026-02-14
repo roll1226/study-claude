@@ -1,3 +1,4 @@
+import { useCallback } from 'react';
 import styled from 'styled-components';
 import { useToggleTodoStatus } from '../model/useToggleTodoStatus';
 import { STATUS_LABELS, TODO_STATUSES } from '@/entities/todo/model/constants';
@@ -56,15 +57,16 @@ const StyledSelect = styled.select<{ $status: TodoStatus }>`
 export function TodoStatusSelector({ todoId, currentStatus }: TodoStatusSelectorProps) {
   const { changeTodoStatus } = useToggleTodoStatus();
 
-  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleChange = useCallback((e: React.ChangeEvent<HTMLSelectElement>) => {
     changeTodoStatus(todoId, e.target.value as TodoStatus);
-  };
+  }, [changeTodoStatus, todoId]);
 
   return (
     <StyledSelect
       $status={currentStatus}
       value={currentStatus}
       onChange={handleChange}
+      aria-label="タスクのステータスを変更"
     >
       {Object.values(TODO_STATUSES).map((status) => (
         <option key={status} value={status}>
